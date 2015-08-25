@@ -223,6 +223,7 @@ var styles = StyleSheet.create({
     },
     bottomBox:{
         flex:1,
+        padding:5,
         backgroundColor:'transparent'
 
     },

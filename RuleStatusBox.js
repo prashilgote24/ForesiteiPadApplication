@@ -144,6 +144,7 @@ var styles = StyleSheet.create({
     ruleBox:{
         flex:1,
         margin:5,
+        marginLeft:0,
         height:170,
         flexDirection:'row',
 
