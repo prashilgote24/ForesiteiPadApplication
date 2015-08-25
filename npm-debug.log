@@ -1,0 +1,160 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'react-native-orientation',
+1 verbose cli   '--save' ]
+2 info using npm@2.12.1
+3 info using node@v0.12.7
+4 verbose node symlink /usr/local/bin/node
+5 verbose install initial load of /Users/synerzip/ReactNative/ForeSiteiPad/package.json
+6 verbose installManyTop reading scoped package data from /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native/package.json
+7 verbose installManyTop reading scoped package data from /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-chart/package.json
+8 info package.json react-native-chart@0.0.4 No license field.
+9 verbose readDependencies loading dependencies from /Users/synerzip/ReactNative/ForeSiteiPad/package.json
+10 silly cache add args [ 'react-native-orientation', null ]
+11 verbose cache add spec react-native-orientation
+12 silly cache add parsed spec { raw: 'react-native-orientation',
+12 silly cache add   scope: null,
+12 silly cache add   name: 'react-native-orientation',
+12 silly cache add   rawSpec: '',
+12 silly cache add   spec: '*',
+12 silly cache add   type: 'range' }
+13 silly addNamed react-native-orientation@*
+14 verbose addNamed "*" is a valid semver range for react-native-orientation
+15 silly addNameRange { name: 'react-native-orientation', range: '*', hasData: false }
+16 silly mapToRegistry name react-native-orientation
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry uri https://registry.npmjs.org/react-native-orientation
+20 verbose addNameRange registry:https://registry.npmjs.org/react-native-orientation not in flight; fetching
+21 verbose request uri https://registry.npmjs.org/react-native-orientation
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 01:11:15
+24 verbose request id f1b470e1b3e7237d
+25 http request GET https://registry.npmjs.org/react-native-orientation
+26 http 200 https://registry.npmjs.org/react-native-orientation
+27 silly get cb [ 200,
+27 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly get     etag: '"8KBBSFYUMM4M6IWSHE02T9NKL"',
+27 silly get     'content-type': 'application/json',
+27 silly get     'cache-control': 'max-age=60',
+27 silly get     'content-length': '11816',
+27 silly get     'accept-ranges': 'bytes',
+27 silly get     date: 'Sun, 23 Aug 2015 19:41:18 GMT',
+27 silly get     via: '1.1 varnish',
+27 silly get     age: '0',
+27 silly get     connection: 'keep-alive',
+27 silly get     'x-served-by': 'cache-sin6921-SIN',
+27 silly get     'x-cache': 'MISS',
+27 silly get     'x-cache-hits': '0',
+27 silly get     'x-timer': 'S1440358877.262755,VS0,VE889',
+27 silly get     vary: 'Accept' } ]
+28 verbose get saving react-native-orientation to /Users/synerzip/.npm/registry.npmjs.org/react-native-orientation/.cache.json
+29 silly addNameRange number 2 { name: 'react-native-orientation', range: '*', hasData: true }
+30 silly addNameRange versions [ 'react-native-orientation',
+30 silly addNameRange   [ '1.0.0', '1.0.1', '1.1.1', '1.2.0', '1.3.0', '1.4.0', '1.5.0' ] ]
+31 silly addNamed react-native-orientation@1.5.0
+32 verbose addNamed "1.5.0" is a plain semver version for react-native-orientation
+33 silly mapToRegistry name react-native-orientation
+34 silly mapToRegistry using default registry
+35 silly mapToRegistry registry https://registry.npmjs.org/
+36 silly mapToRegistry uri https://registry.npmjs.org/react-native-orientation
+37 verbose addRemoteTarball https://registry.npmjs.org/react-native-orientation/-/react-native-orientation-1.5.0.tgz not in flight; adding
+38 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-native-orientation/-/react-native-orientation-1.5.0.tgz',
+38 verbose addRemoteTarball   '429f3f99694bcd17f353e72f07d285c9cc56ffae' ]
+39 info retry fetch attempt 1 at 01:11:17
+40 info attempt registry request try #1 at 01:11:17
+41 http fetch GET https://registry.npmjs.org/react-native-orientation/-/react-native-orientation-1.5.0.tgz
+42 http fetch 200 https://registry.npmjs.org/react-native-orientation/-/react-native-orientation-1.5.0.tgz
+43 silly fetchAndShaCheck shasum 429f3f99694bcd17f353e72f07d285c9cc56ffae
+44 verbose addTmpTarball /var/folders/s0/0lftf8j5023cj3lw30x2nqnc0000gp/T/npm-205-374445ee/registry.npmjs.org/react-native-orientation/-/react-native-orientation-1.5.0.tgz not in flight; adding
+45 verbose addTmpTarball already have metadata; skipping unpack for react-native-orientation@1.5.0
+46 silly cache afterAdd react-native-orientation@1.5.0
+47 verbose afterAdd /Users/synerzip/.npm/react-native-orientation/1.5.0/package/package.json not in flight; writing
+48 verbose afterAdd /Users/synerzip/.npm/react-native-orientation/1.5.0/package/package.json written
+49 silly install resolved [ { name: 'react-native-orientation',
+49 silly install resolved     version: '1.5.0',
+49 silly install resolved     description: 'Listen to device orientation changes in react-native and set preferred orientation on screen to screen basis',
+49 silly install resolved     main: 'index.js',
+49 silly install resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+49 silly install resolved     keywords: [ 'react-component', 'react-native', 'ios', 'orientation' ],
+49 silly install resolved     peerDependencies: { 'react-native': '>=0.5' },
+49 silly install resolved     author:
+49 silly install resolved      { name: 'Yamill Vallecillo',
+49 silly install resolved        email: 'yamill@gmail.com',
+49 silly install resolved        url: 'github.com/yamill' },
+49 silly install resolved     license: 'ISC',
+49 silly install resolved     repository:
+49 silly install resolved      { type: 'git',
+49 silly install resolved        url: 'git+https://github.com/yamill/react-native-orientation.git' },
+49 silly install resolved     bugs: { url: 'https://github.com/yamill/react-native-orientation/issues' },
+49 silly install resolved     homepage: 'https://github.com/yamill/react-native-orientation#readme',
+49 silly install resolved     gitHead: '10f4a964e244f2d7c5b57edd92c26d529693a062',
+49 silly install resolved     _id: 'react-native-orientation@1.5.0',
+49 silly install resolved     _shasum: '429f3f99694bcd17f353e72f07d285c9cc56ffae',
+49 silly install resolved     _from: 'react-native-orientation@*',
+49 silly install resolved     _npmVersion: '2.12.1',
+49 silly install resolved     _nodeVersion: '2.3.4',
+49 silly install resolved     _npmUser: { name: 'yamill', email: 'yamill@gmail.com' },
+49 silly install resolved     dist:
+49 silly install resolved      { shasum: '429f3f99694bcd17f353e72f07d285c9cc56ffae',
+49 silly install resolved        tarball: 'http://registry.npmjs.org/react-native-orientation/-/react-native-orientation-1.5.0.tgz' },
+49 silly install resolved     maintainers: [ [Object] ],
+49 silly install resolved     directories: {},
+49 silly install resolved     _resolved: 'https://registry.npmjs.org/react-native-orientation/-/react-native-orientation-1.5.0.tgz' } ]
+50 info install react-native-orientation@1.5.0 into /Users/synerzip/ReactNative/ForeSiteiPad
+51 info installOne react-native-orientation@1.5.0
+52 verbose installOne of react-native-orientation to /Users/synerzip/ReactNative/ForeSiteiPad not in flight; installing
+53 verbose lock using /Users/synerzip/.npm/_locks/react-native-orientation-ba93d266c4b760e0.lock for /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation
+54 silly install write writing react-native-orientation 1.5.0 to /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation
+55 verbose unbuild node_modules/react-native-orientation
+56 silly gentlyRm /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation is being purged from base /Users/synerzip/ReactNative/ForeSiteiPad
+57 verbose gentlyRm don't care about contents; nuking /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation
+58 verbose tar unpack /Users/synerzip/.npm/react-native-orientation/1.5.0/package.tgz
+59 verbose tar unpacking to /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation
+60 silly gentlyRm /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation is being purged
+61 verbose gentlyRm don't care about contents; nuking /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation
+62 silly gunzTarPerm modes [ '755', '644' ]
+63 silly gunzTarPerm extractEntry package.json
+64 silly gunzTarPerm extractEntry README.md
+65 silly gunzTarPerm extractEntry index.js
+66 silly gunzTarPerm extractEntry RCTOrientation/Orientation.h
+67 silly gunzTarPerm extractEntry RCTOrientation/Orientation.m
+68 verbose write writing to /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation/package.json
+69 info preinstall react-native-orientation@1.5.0
+70 verbose readDependencies loading dependencies from /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation/package.json
+71 verbose readDependencies loading dependencies from /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation/package.json
+72 silly install resolved []
+73 verbose about to build /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation
+74 info build /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation
+75 info linkStuff react-native-orientation@1.5.0
+76 silly linkStuff react-native-orientation@1.5.0 has /Users/synerzip/ReactNative/ForeSiteiPad/node_modules as its parent node_modules
+77 verbose linkBins react-native-orientation@1.5.0
+78 verbose linkMans react-native-orientation@1.5.0
+79 verbose rebuildBundles react-native-orientation@1.5.0
+80 info install react-native-orientation@1.5.0
+81 info postinstall react-native-orientation@1.5.0
+82 verbose unlock done using /Users/synerzip/.npm/_locks/react-native-orientation-ba93d266c4b760e0.lock for /Users/synerzip/ReactNative/ForeSiteiPad/node_modules/react-native-orientation
+83 verbose validateInstall loading /Users/synerzip/ReactNative/ForeSiteiPad/package.json for validation
+84 verbose stack Error: The package react-native does not satisfy its siblings' peerDependencies requirements!
+84 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+84 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:267:7
+84 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+84 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+84 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+84 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+84 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+84 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+84 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+84 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+85 verbose cwd /Users/synerzip/ReactNative/ForeSiteiPad
+86 error Darwin 14.4.0
+87 error argv "node" "/usr/local/bin/npm" "install" "react-native-orientation" "--save"
+88 error node v0.12.7
+89 error npm  v2.12.1
+90 error code EPEERINVALID
+91 error peerinvalid The package react-native does not satisfy its siblings' peerDependencies requirements!
+91 error peerinvalid Peer react-native-chart@0.0.4 wants react-native@^0.4.0
+91 error peerinvalid Peer react-native-orientation@1.5.0 wants react-native@>=0.5
+92 verbose exit [ 1, true ]
