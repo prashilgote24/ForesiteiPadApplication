@@ -14,9 +14,11 @@ var {
     TouchableOpacity
     } = React;
 
-var RuleStatusBox = require('./RuleStatusBox');
+var RuleStatusBox = require('../Common/RuleStatusBox');
 var RNChart = require('react-native-chart');
-var TopBar = require('./Common/TopBar');
+var TopBar = require('../Common/TopBar');
+var Section = require('../Common/Section');
+var OutdatedList = require('./OutdatedList');
 var ActionSheetIOS = require('ActionSheetIOS');
 
 var chartData = [
@@ -130,40 +132,16 @@ class Dashboard extends React.Component{
                                 'normal':600
                         }}/>
                         </View>
-                        <View style={styles.outdatedSection}>
-                            <View style={styles.outdatedHeaderSection}>
-                                <View style={styles.headerLabel}>
-                                    <Text style={styles.header}>Outdated</Text>
-                                </View>
-                                <View style={styles.headerTool}>
-                                    <TouchableOpacity>
-                                        <Image source={require('image!share')}
-                                            style={styles.toolButton}/>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <View style={styles.outdatedList}>
-                            </View>
-                        </View>
+                        <Section headerTitle="Outdated Sites">
+                            <OutdatedList />
+                        </Section>
 
 
                 </View>
                 <View style={styles.bottomBox}>
-                    <View style={styles.outdatedSection}>
-                        <View style={styles.outdatedHeaderSection}>
-                            <View style={styles.headerLabel}>
-                                <Text style={styles.header}>Critical Sites</Text>
-                            </View>
-                            <View style={styles.headerTool}>
-                                <TouchableOpacity>
-                                    <Image source={require('image!share')}
-                                    style={styles.toolButton}/>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                        <View style={styles.outdatedList}>
-                        </View>
-                    </View>
+                    <Section headerTitle="Critical Sites">
+                        <Text> Hello </Text>
+                    </Section>
                 </View>
             </View>
             );
@@ -178,7 +156,7 @@ var styles = StyleSheet.create({
         paddingRight:5
     },
     topBox:{
-        height:250,
+        height:200,
         flexDirection:'row'
     },
     centerBox:{
@@ -186,40 +164,6 @@ var styles = StyleSheet.create({
         padding:5,
         backgroundColor:'transparent',
         flexDirection:'row'
-    },
-    outdatedSection:{
-        backgroundColor:'transparent',
-        flex:1,
-        paddingTop:5,
-    },
-    outdatedHeaderSection:{
-        backgroundColor:'#eeeeee',
-        alignSelf:'stretch',
-        flexDirection:'row'
-    },
-    outdatedList:{
-        backgroundColor:'transparent',
-        flex:1
-    },
-    headerLabel:{
-        alignSelf:'flex-start',
-        flex:1
-    },
-    header:{
-        fontSize:17,
-        color:"#777777",
-        padding:5
-    },
-    headerTool:{
-        alignSelf:'flex-end',
-        flex:1,
-        justifyContent:'flex-end',
-        flexDirection:'row'
-    },
-    toolButton:{
-        width:20,
-        height:20,
-        margin:5
     },
     bottomBox:{
         flex:1,
@@ -230,7 +174,6 @@ var styles = StyleSheet.create({
     orgInfo:{
         flex:0.2,
     },
-
     detailLine:{
         paddingTop:0,
         paddingLeft:5,

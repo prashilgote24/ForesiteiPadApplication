@@ -32,7 +32,7 @@ var CANCEL_INDEX = 4;
 
 
 var TopBar = require('./Common/TopBar');
-var Dashboard = require('./Dashboard');
+var Dashboard = require('./Dashboard/Dashboard');
 var ActionSheetIOS = require('ActionSheetIOS');
 
 
@@ -64,7 +64,7 @@ class LandingScreen extends React.Component{
         if(route.index == 0){
             return (<Dashboard />);
         }else if(route.index == 1){
-            var MapViewScreen = require('./MapViewScreen');
+            var MapViewScreen = require('./MapView/MapViewScreen');
             return (<MapViewScreen />);
         }
     }
