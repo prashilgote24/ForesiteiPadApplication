@@ -10,43 +10,62 @@ var {
     Text,
     View,
     Image,
-    StatusBarIOS
+    StatusBarIOS,
+    ActivityIndicatorIOS
     } = React;
 
 
 var PortraitLoginScreen = require('./PortraitLoginScreen');
-var Orientation = require('react-native-orientation');
+//var Orientation = require('react-native-orientation');
+var Keychain = require('react-native-keychain');
 
 class LoginScreen extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-
+            keyChainLoaded:false,
+            loggedIn:false
         };
     }
-    _orientationDidChange(orientation) {
-        console.log(orientation);
-        if(orientation == 'LANDSCAPE'){
-            //do something with landscape layout
-        }else{
-            //do something with portrait layout
-        }
+    componentWillMount(){
+
+    }
+    renderLoadingView(){
+        return (
+            <View style={styles.maskContainer}>
+                <ActivityIndicatorIOS
+                    animating={true}
+                    style={[styles.loadingIndicator,{height: 80}]}
+                    size="large" />
+            </View>
+        );
     }
     componentDidMount(){
-       //Orientation.lockToPortrait(); //this will lock the view to Portrait
-        //Orientation.lockToLandscape(); //this will lock the view to Landscape
-        //Orientation.unlockAllOrientations(); //this will unlock the view to all Orientations
-
-        //Orientation.addOrientationListener(this._orientationDidChange);
+            Keychain
+                .getGenericPassword()
+                .then((credentials)=> {
+                    console.log('Credentials successfully loaded for user ' + credentials.username +" : "+credentials.password);
+                    this.setState({keyChainLoaded:true,loggedIn:true});
+                })
+                .catch((err) => {
+                    console.log('Credentials not available....');
+                    this.setState({keyChainLoaded:true,loggedIn:false});
+                });
     }
-    componentWillUnmount() {
-        //Orientation.removeOrientationListener(this._orientationDidChange);
+    resetPassword(){
+        Keychain
+            .resetGenericPassword()
+            .then(function() {
+                console.log('Credentials successfully deleted');
+            });
     }
     render(){
-       //StatusBarIOS.setStyle('light-content');
+       if(!this.state.keyChainLoaded){
+            return (this.renderLoadingView());
+       }
 
         return (
-           <PortraitLoginScreen />
+           <PortraitLoginScreen loggedIn={this.state.loggedIn}/>
         );
     }
 }
@@ -63,6 +82,13 @@ var styles = StyleSheet.create({
         backgroundColor:'#37474f',
 
         height:1
+    },
+    maskContainer:{
+        flex:1,
+        justifyContent:'center'
+    },
+    loadingIndicator:{
+        alignSelf:'center'
     },
 });
 

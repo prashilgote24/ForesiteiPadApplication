@@ -17,6 +17,7 @@ var{
     } = React;
 
 var LoadMoreIndicator = require('../Common/LoadMoreIndicator');
+var DataGrid = require('../Common/DataGrid');
 
 var outdatedData = {
     totalRecord:25,
@@ -98,102 +99,58 @@ class OutdatedList extends React.Component{
     constructor(props) {
         super(props);
         this.totalRecord = 0;
-        this.startIndex = 0;
-        this.offset = 0;
+        this.offset = 10;
         this.currentDataArray = [];
+    }
 
-        this.state = {
-            dataSource: new ListView.DataSource({
-                    rowHasChanged: (row1, row2) =>  row1 !== row2,
-             }),
-             listLoaded:false,
-             scrollEnable:true,
-             loading:false,
-             canLoadMore:false
-        }
-    }
-    calculateCanLoadMore(dataObject){
-        this.totalRecord = dataObject.totalRecord;
-        this.startIndex = dataObject.startIndex;
-        this.offset = dataObject.offset;
-        this.currentDataArray = dataObject.data;
-        var canLoadMore = false;
-        if((this.startIndex + this.offset) >= this.totalRecord){
-            canLoadMore = false;
-        }else{
-            canLoadMore = true;
-        }
-        return canLoadMore;
-    }
     componentDidMount(){
-        var interval = setInterval(()=>{
-            clearInterval(interval);
-
-            var canLoadMore = this.calculateCanLoadMore(outdatedData);
-            this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(outdatedData.data),
-                listLoaded:true,
-                canLoadMore:canLoadMore
-            });
-
-            },100);
 
     }
-    onSelected(data){
-
-    }
-    onScroll(){
-
-    }
-    loadMore(){
-        if(this.state.loading || !this.state.canLoadMore){
-            return;
-        }
-        this.setState({loading:true});
-        //Send eq for:
-        var startIndexInReq = this.startIndex + this.offset;
-        var offset = this.offset;
-
-        //Dummy Data
-        var dataArray = [];
-        for(var index=startIndexInReq, dataIndex = 0; dataIndex < offset && index < this.totalRecord; index++,dataIndex++){
-            dataArray.push({
-                siteName:'New Baltimore Site #1234'+index,
-                siteId:index,
-                lastInventoryUpdateDate:'Aug 23 2015 12:45PM',
-                staleHrs:'36 Hours',
-                noOfOutdatedAssets:3
-            });
-        }
-
-        var result = {
-            totalRecord:25,
-            startIndex:startIndexInReq,
-            offset:10,
-            data:this.currentDataArray.concat(dataArray)
-        };
-        console.log("startIndexInReq:"+startIndexInReq);
-        console.log("offset:"+offset);
-        console.log("this.totalRecord:"+this.totalRecord);
-        console.log("this.currentDataArray:"+this.currentDataArray);
-
-        var interval = setInterval(()=>{
-                clearInterval(interval);
-
-                var canLoadMore = this.calculateCanLoadMore(result);
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(result.data),
-                    loading:false,
-                    canLoadMore:canLoadMore
+    loadData(startIndex, callback){
+        if(startIndex == 0){
+            this.currentDataArray = outdatedData.data;
+            this.totalRecord = outdatedData.totalRecord;
+            callback(outdatedData);
+        }else{
+            //Dummy Data
+            var dataArray = [];
+            for(var index=startIndex, dataIndex = 0; dataIndex < this.offset && index < this.totalRecord; index++,dataIndex++){
+                dataArray.push({
+                    siteName:'New Baltimore Site #1234'+index,
+                    siteId:index,
+                    lastInventoryUpdateDate:'Aug 23 2015 12:45PM',
+                    staleHrs:'36 Hours',
+                    noOfOutdatedAssets:3
                 });
+            }
+
+            var result = {
+                totalRecord:25,
+                startIndex:startIndex,
+                offset:10,
+                data:this.currentDataArray.concat(dataArray)
+            };
+            console.log("startIndexInReq:"+startIndex);
+            console.log("offset:"+this.offset);
+            console.log("this.totalRecord:"+this.totalRecord);
+            console.log("this.currentDataArray:"+this.currentDataArray);
+
+            var interval = setInterval(()=>{
+                    clearInterval(interval);
+                    this.currentDataArray = result.data;
+                    this.totalRecord = result.totalRecord;
+                    callback(result);
 
             },1000);
-
-
+        }
     }
+    onSelected(data){
+        console.log(data);
+    }
+
+
     renderData(data){
         return (
-            <TouchableHighlight style={{flex:1}} onPress={this.onSelected.bind(this,data)}>
                 <View style={{flex:1}}>
                     <View style={styles.rowContainer}>
                         <View style={styles.dataContainer}>
@@ -212,62 +169,22 @@ class OutdatedList extends React.Component{
                     </View>
                     <View style={styles.separator} />
                 </View>
-            </TouchableHighlight>
         );
     }
-    renderLoadingView(){
-        return (
-                <View style={styles.maskContainer}>
-                    <ActivityIndicatorIOS
-                        animating={true}
-                        style={[styles.loadingIndicator,{height: 80}]}
-                    size="large" />
-                </View>
-            );
-        }
-    render(){
-        if(!this.state.listLoaded){
-            return this.renderLoadingView();
-        }
-        return (
-            <View style={styles.container}>
-                <ListView
-                onScroll={this.onScroll.bind(this)}
-                dataSource={this.state.dataSource}
-                onEndReached={this.loadMore.bind(this)}
-                renderRow={this.renderData.bind(this)}
-                style={styles.listView}
-                automaticallyAdjustContentInsets={false}
-                contentInset={{bottom:0}}
-                scrollEventThrottle={300}
-                onEndReachedThreshold={2}
-                directionalLockEnabled={true}
-                canCancelContentTouches={true}
-                />
-                {
-                    this.state.loading ?
-                    <LoadMoreIndicator/>
-                :<View></View>
-                }
 
-            </View>
+    render(){
+
+        return (
+            <DataGrid loadData={this.loadData.bind(this)}
+                      offset={10}
+                      renderData={this.renderData}
+                        onSelected={this.onSelected.bind(this)}/>
         );
     }
 
 }
 
 var styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor:"transparent"
-    },
-    maskContainer:{
-        flex:1,
-        justifyContent:'center'
-    },
-    loadingIndicator:{
-        alignSelf:'center'
-    },
     rowContainer:{
         flex:1,
         backgroundColor:"#FFFFFF",

@@ -17,6 +17,10 @@ var {
     } = React;
 
 var LandingScreen = require('./LandingScreen');
+var DeviceUUID = require("react-native-device-uuid");
+var Keychain = require('react-native-keychain');
+
+
 class PortraitLoginScreen extends React.Component{
     constructor(props){
         super(props);
@@ -24,7 +28,7 @@ class PortraitLoginScreen extends React.Component{
             logoWith: 0,
             logoHeight:0,
             isLoading: false,
-            loggedIn:false,
+            loggedIn:this.props.loggedIn,
             error:false,
             employeeId:null,
             password:null,
@@ -46,12 +50,19 @@ class PortraitLoginScreen extends React.Component{
     handleLogin(){
 
         if(this.validate()) {
+            DeviceUUID.getUUID().then((uuid) => {
+                console.log(uuid);
+            });
+
             this.setState({isLoading: true,error:false});
             var interval = setInterval(()=>{
                     clearInterval(interval);
-            //console.log(new Buffer(this.state.employeeId).toString('base64'));
-            this.setState({isLoading: false,loggedIn:true});
-                },300);
+                    Keychain.setGenericPassword(this.state.employeeId, this.state.password)
+                        .then(function() {
+                            console.log('Credentials saved successfully!');
+                    });
+                    this.setState({isLoading: false,loggedIn:true});
+            },300);
         }
     }
     onEmpIdChange(event){

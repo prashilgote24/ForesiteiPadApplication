@@ -24,7 +24,7 @@
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>Title</key>
-			<string>Name</string>
+			<string>App URL</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>

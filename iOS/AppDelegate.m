@@ -31,7 +31,7 @@
    * on the same Wi-Fi network.
    */
 
-  jsCodeLocation = [NSURL URLWithString:@"http://172.24.102.51:8081/index.ios.bundle"];
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
 
   /**
    * OPTION 2
@@ -57,25 +57,5 @@
   return YES;
 }
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-  
-  NSUInteger orientations;
-  
-  orientations = UIInterfaceOrientationMaskAllButUpsideDown;
-  
-  if (self.lockToPortrait == YES) {
-    orientations = UIInterfaceOrientationMaskPortrait;
-  }
-  
-  if (self.lockToLandscape == YES) {
-    orientations = UIInterfaceOrientationMaskLandscape;
-  }
-  
-  if (self.unlockAllOrientations == YES) {
-    orientations = UIInterfaceOrientationMaskAllButUpsideDown;
-  }
-  
-  return orientations;
-}
 
 @end

@@ -11,9 +11,8 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+
 @property (nonatomic, strong) UIWindow *window;
-@property (nonatomic) bool lockToPortrait;
-@property (nonatomic) bool lockToLandscape;
-@property (nonatomic) bool unlockAllOrientations;
+
 
 @end

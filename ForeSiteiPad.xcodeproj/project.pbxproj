@@ -22,8 +22,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		7E6223851B8DDABF002A245C /* BrewingDeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6223841B8DDABF002A245C /* BrewingDeviceOrientation.m */; };
+		7E6916F21B8F22C800EA4CAB /* libRCTDeviceUUID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6916F11B8F22B600EA4CAB /* libRCTDeviceUUID.a */; };
+		7E6916F91B8F242500EA4CAB /* libRNKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6916F81B8F241C00EA4CAB /* libRNKeychain.a */; };
 		7EF07F051B87686500101615 /* libRNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF07F041B87685100101615 /* libRNChart.a */; };
-		7EF7C1FC1B8A598F0016C72C /* RCTOrientation in Resources */ = {isa = PBXBuildFile; fileRef = 7EF7C1FB1B8A598F0016C72C /* RCTOrientation */; };
 		7EF7C1FE1B8ADA9E0016C72C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EF7C1FD1B8ADA9E0016C72C /* Settings.bundle */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
@@ -99,6 +101,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTLinking;
 		};
+		7E6916F01B8F22B600EA4CAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6916EC1B8F22B600EA4CAB /* RCTDeviceUUID.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F12AFB9B1ADAF8F800E0535D;
+			remoteInfo = RCTDeviceUUID;
+		};
+		7E6916F71B8F241C00EA4CAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6916F31B8F241C00EA4CAB /* RNKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D82366F1B0CE05B005A9EF3;
+			remoteInfo = RNKeychain;
+		};
 		7EF07F031B87685100101615 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7EF07EF51B87685100101615 /* RNChart.xcodeproj */;
@@ -143,9 +159,12 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iOS/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7E6223831B8DDABF002A245C /* BrewingDeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrewingDeviceOrientation.h; path = "../../react-native-device-orientation-master/ios/BrewingDeviceOrientation.h"; sourceTree = "<group>"; };
+		7E6223841B8DDABF002A245C /* BrewingDeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrewingDeviceOrientation.m; path = "../../react-native-device-orientation-master/ios/BrewingDeviceOrientation.m"; sourceTree = "<group>"; };
+		7E6916EC1B8F22B600EA4CAB /* RCTDeviceUUID.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTDeviceUUID.xcodeproj; path = "node_modules/react-native-device-uuid/RCTDeviceUUID.xcodeproj"; sourceTree = "<group>"; };
+		7E6916F31B8F241C00EA4CAB /* RNKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNKeychain.xcodeproj; path = "node_modules/react-native-keychain/RNKeychain.xcodeproj"; sourceTree = "<group>"; };
 		7EF07EF51B87685100101615 /* RNChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNChart.xcodeproj; path = "node_modules/react-native-chart/RNChart.xcodeproj"; sourceTree = "<group>"; };
 		7EF07F061B88CA7800101615 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
-		7EF7C1FB1B8A598F0016C72C /* RCTOrientation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RCTOrientation; path = "node_modules/react-native-orientation/RCTOrientation"; sourceTree = "<group>"; };
 		7EF7C1FD1B8ADA9E0016C72C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6916F91B8F242500EA4CAB /* libRNKeychain.a in Frameworks */,
+				7E6916F21B8F22C800EA4CAB /* libRCTDeviceUUID.a in Frameworks */,
 				7EF07F051B87686500101615 /* libRNChart.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -255,6 +276,8 @@
 		13B07FAE1A68108700A75B9A /* ForeSiteiPad */ = {
 			isa = PBXGroup;
 			children = (
+				7E6223831B8DDABF002A245C /* BrewingDeviceOrientation.h */,
+				7E6223841B8DDABF002A245C /* BrewingDeviceOrientation.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -282,6 +305,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7E6916ED1B8F22B600EA4CAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E6916F11B8F22B600EA4CAB /* libRCTDeviceUUID.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E6916F41B8F241C00EA4CAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E6916F81B8F241C00EA4CAB /* libRNKeychain.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7EF07EF61B87685100101615 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +340,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7E6916F31B8F241C00EA4CAB /* RNKeychain.xcodeproj */,
+				7E6916EC1B8F22B600EA4CAB /* RCTDeviceUUID.xcodeproj */,
 				7EF07F061B88CA7800101615 /* Charts.xcodeproj */,
 				7EF07EF51B87685100101615 /* RNChart.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -329,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				7EF7C1FD1B8ADA9E0016C72C /* Settings.bundle */,
-				7EF7C1FB1B8A598F0016C72C /* RCTOrientation */,
 				13B07FAE1A68108700A75B9A /* ForeSiteiPad */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ForeSiteiPadTests */,
@@ -425,6 +465,10 @@
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
 				{
+					ProductGroup = 7E6916ED1B8F22B600EA4CAB /* Products */;
+					ProjectRef = 7E6916EC1B8F22B600EA4CAB /* RCTDeviceUUID.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -463,6 +507,10 @@
 				{
 					ProductGroup = 7EF07EF61B87685100101615 /* Products */;
 					ProjectRef = 7EF07EF51B87685100101615 /* RNChart.xcodeproj */;
+				},
+				{
+					ProductGroup = 7E6916F41B8F241C00EA4CAB /* Products */;
+					ProjectRef = 7E6916F31B8F241C00EA4CAB /* RNKeychain.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -537,6 +585,20 @@
 			remoteRef = 78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		7E6916F11B8F22B600EA4CAB /* libRCTDeviceUUID.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTDeviceUUID.a;
+			remoteRef = 7E6916F01B8F22B600EA4CAB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E6916F81B8F241C00EA4CAB /* libRNKeychain.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNKeychain.a;
+			remoteRef = 7E6916F71B8F241C00EA4CAB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		7EF07F041B87685100101615 /* libRNChart.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -576,7 +638,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				7EF7C1FE1B8ADA9E0016C72C /* Settings.bundle in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				7EF7C1FC1B8A598F0016C72C /* RCTOrientation in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +658,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				7E6223851B8DDABF002A245C /* BrewingDeviceOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,7 +731,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/**",
 					"$(SRCROOT)/node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -692,7 +754,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/**",
 					"$(SRCROOT)/node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = iOS/Info.plist;

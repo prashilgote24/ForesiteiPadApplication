@@ -11,7 +11,10 @@ var {
     View,
     Image,
     StatusBarIOS,
-    TouchableOpacity
+    TouchableOpacity,
+    NativeModules,
+    NativeAppEventEmitter,
+    LayoutAnimation
     } = React;
 
 var RuleStatusBox = require('../Common/RuleStatusBox');
@@ -20,6 +23,7 @@ var TopBar = require('../Common/TopBar');
 var Section = require('../Common/Section');
 var OutdatedList = require('./OutdatedList');
 var ActionSheetIOS = require('ActionSheetIOS');
+//var Orientation = require('react-native-orientation');
 
 var chartData = [
     {
@@ -49,38 +53,95 @@ class Dashboard extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-
+            orientation:null,
+            capacityFontSize:25,
+            rowDirection:'column',
+            alignSelf:'flex-end',
+            flex: 0.2,
+            marginRight: 0
         };
     }
+    _orientationDidChange(orientation){
+        console.log("Orientation Change:"+orientation);
+    }
+    setOrientationProps(orientation){
 
+        console.log(orientation);
+        var verticalOrientation = true;
+        var orientationStr = orientation;
+        if(orientationStr == null || orientationStr == 'portait'){
+            return;
+        }
+        if(orientationStr.indexOf('portrait') == -1){
+            this.setState({
+                capacityFontSize:25,
+                marginRight:5,
+                rowDirection:'row',
+                flex:0.3,
+                alignSelf:'flex-start',
+            });
+
+        }else{
+            this.setState({
+                capacityFontSize:25,
+                marginRight:0,
+                rowDirection:'column',
+                flex:0.2,
+                alignSelf:'flex-end',
+            });
+        }
+        //console.log("rowDirection:"+rowDirection);
+    }
+    componentWillMount(){
+        NativeModules.BrewingDeviceOrientation.getOrientation((orientation) => {
+            NativeAppEventEmitter.addListener(
+            'orientationOnChange',
+            (response) => {
+                        LayoutAnimation.linear();
+                        this.setOrientationProps(response.orientation);
+                }
+            );
+
+            this.setOrientationProps(orientation);
+        });
+    }
+    componentDidMount(){
+
+    }
+    componentWillUnmount() {
+
+    }
     render(){
-        //StatusBarIOS.setStyle('light-content');
-
         return (
             <View style={styles.container}>
+
                 <View style={styles.topBox}>
-                    <View style={styles.orgInfo}>
-                        <View style={styles.inventoryDetail}>
-                            <View style={styles.detailLine}>
-                                <Text style={[styles.capacityValue,{color:'#3498db'}]}>1,300</Text>
-                                <Text style={[styles.unit,{color:'#3498db'}]}>Sites</Text>
+                    <View style={[styles.orgInfo,{flex:this.state.flex}]}>
+                        <View style={[styles.inventoryDetail,{flexDirection:this.state.rowDirection}]}>
+                            <View style={[styles.rowBox,{alignSelf:this.state.alignSelf}]}>
+                                <View style={styles.detailLine}>
+                                    <Text style={[styles.capacityValue,{fontSize:this.state.capacityFontSize},{color:'#3498db'}]}>1,300</Text>
+                                    <Text style={[styles.unit,{color:'#3498db'}]}>Sites</Text>
+                                </View>
+                                <View style={styles.detailLine}>
+                                    <Text style={[styles.capacityValue,{fontSize:this.state.capacityFontSize}]}>55,0000,000</Text>
+                                    <Text style={styles.unit}>Capacity</Text>
+                                </View>
                             </View>
-                            <View style={styles.detailLine}>
-                                <Text style={styles.capacityValue}>55,0000,000</Text>
-                                <Text style={styles.unit}>Capacity</Text>
-                            </View>
-                            <View style={styles.detailLine}>
-                                <Text style={[styles.capacityValue,{color:'#00e676'}]}>55,00,000</Text>
-                                <Text style={[styles.unit,{color:'#00e676'}]}>Inventory</Text>
-                            </View>
-                            <View style={styles.detailLine}>
-                                <Text style={[styles.capacityValue,{color:'#aed581'}]}>5,00,00</Text>
-                                <Text style={[styles.unit,{color:'#aed581'}]}>Ullage</Text>
+                            <View style={[styles.rowBox,{alignSelf:this.state.alignSelf},{marginRight:this.state.marginRight}]}>
+                                <View style={styles.detailLine}>
+                                    <Text style={[styles.capacityValue,{color:'#00e676'},{fontSize:this.state.capacityFontSize}]}>55,00,000</Text>
+                                    <Text style={[styles.unit,{color:'#00e676'}]}>Inventory</Text>
+                                </View>
+                                <View style={styles.detailLine}>
+                                    <Text style={[styles.capacityValue,{color:'#aed581'},{fontSize:this.state.capacityFontSize}]}>5,00,00</Text>
+                                    <Text style={[styles.unit,{color:'#aed581'}]}>Ullage</Text>
+                                </View>
                             </View>
                         </View>
-                    </View>
+                     </View>
 
-                    <View style={styles.chartBox}>
+                     <View style={styles.chartBox}>
                         <RNChart style={styles.chart}
                         labelFontSize="5"
                         chartData={chartData}
@@ -91,6 +152,9 @@ class Dashboard extends React.Component{
                             </RNChart>
                     </View>
                 </View>
+
+
+
 
                 <View style={styles.centerBox}>
 
@@ -153,10 +217,11 @@ var styles = StyleSheet.create({
         flex:1,
         backgroundColor:'#F9F9F9',
         paddingLeft:5,
-        paddingRight:5
+        paddingRight:5,
+        paddingTop:10
     },
     topBox:{
-        height:200,
+        flex:0.5,
         flexDirection:'row'
     },
     centerBox:{
@@ -173,6 +238,7 @@ var styles = StyleSheet.create({
     },
     orgInfo:{
         flex:0.2,
+
     },
     detailLine:{
         paddingTop:0,
@@ -192,6 +258,10 @@ var styles = StyleSheet.create({
     },
     inventoryDetail:{
         marginTop:5,
+        flex:1,
+
+    },
+    rowBox:{
         flex:1,
         alignSelf:'flex-start'
     },
